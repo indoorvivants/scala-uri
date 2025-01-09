@@ -92,7 +92,7 @@ val isScala3 = Def.setting {
 
 val sharedSettings = Seq(
   libraryDependencies ++= Seq(
-    "org.typelevel"     %%% "simulacrum-scalafix-annotations" % simulacrumScalafixVersion,
+    "org.typelevel"      %% "simulacrum-scalafix-annotations" % simulacrumScalafixVersion,
     "org.scalatest"     %%% "scalatest"                       % "3.2.19"   % Test,
     "org.scalatestplus" %%% "scalacheck-1-16"                 % "3.2.14.0" % Test,
     "org.scalacheck"    %%% "scalacheck"                      % "1.18.1"   % Test,
