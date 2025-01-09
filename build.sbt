@@ -65,6 +65,9 @@ lazy val scalaUri =
         )
       )
     )
+    .nativePlatform(
+      Versions.allScala
+    )
 
 lazy val docs = project
   .in(file("scala-uri-docs"))
@@ -127,7 +130,7 @@ val scalaUriSettings = Seq(
   description := "Simple scala library for building and parsing URIs",
   libraryDependencies ++= Seq(
     "org.typelevel" %%% "cats-core"  % "2.12.0",
-    "org.typelevel" %%% "cats-parse" % "1.0.0"
+    "org.typelevel" %%% "cats-parse" % "1.1.0"
   ),
   libraryDependencies ++= (if (isScala3.value) Nil else Seq("com.chuusai" %%% "shapeless" % "2.3.12")),
   pomPostProcess := { node =>
