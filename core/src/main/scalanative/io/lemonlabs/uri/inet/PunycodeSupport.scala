@@ -15,9 +15,7 @@ trait PunycodeSupport {
       (result, error)
     }
     if (error < 0) {
-      throw new RuntimeException(
-        s"idn2_to_ascii_8z for input '$host' and flags IDN2_TRANSITIONAL=$IDN2_TRANSITIONAL returned error $error."
-      )
+      throw Idn2Exception(host, IDN2_TRANSITIONAL, error)
     } else {
       result
     }
@@ -25,5 +23,9 @@ trait PunycodeSupport {
 }
 
 object PunycodeSupport {
+  case class Idn2Exception(input: String, flags: Int, error: Int)
+      extends RuntimeException(
+        s"idn2_to_ascii_8z for input '$input' and flags $flags returned error $error."
+      )
   val IDN2_TRANSITIONAL: CInt = 4
 }
