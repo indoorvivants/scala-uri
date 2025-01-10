@@ -15,7 +15,7 @@ trait PunycodeSupport {
       (result, error)
     }
     if (error < 0) {
-      throw new RuntimeException(s"idn2_to_ascii_8z returned error $error.")
+      throw new RuntimeException(s"idn2_to_ascii_8z for input $host and flags IDN2_TRANSITIONAL returned error $error.")
     } else {
       result
     }
