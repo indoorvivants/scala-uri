@@ -7,13 +7,13 @@ import scala.scalanative.unsafe._
 
 trait PunycodeSupport {
   def toPunycode(host: String): String = {
+    val output: Ptr[CString] = stackalloc[CString]()
     val (result, error) = Zone.acquire { implicit z =>
-      val output: Ptr[CString] = stackalloc[CString]()
       val error = idn2.idn2_to_ascii_8z(input = toCString(host), output = output, flags = IDN2_TRANSITIONAL)
       val result = fromCString(!output)
-      libc.stdlib.free(!output)
       (result, error)
     }
+    libc.stdlib.free(!output)
     if (error < 0) {
       throw Idn2Exception(host, IDN2_TRANSITIONAL, error)
     } else {
