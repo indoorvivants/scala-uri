@@ -66,7 +66,8 @@ lazy val scalaUri =
       )
     )
     .nativePlatform(
-      Versions.allScala
+      Versions.allScala,
+      nativeConfig ~= { _.withLinkingOptions(_ :+ "-lidn2") }
     )
 
 lazy val docs = project

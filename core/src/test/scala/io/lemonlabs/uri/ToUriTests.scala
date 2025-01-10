@@ -42,6 +42,7 @@ class ToUriTests extends AnyWordSpec with Matchers {
       javaUri.toASCIIString should equal(strUri)
     }
 
+    // TODO: suppress
     "handle exotic/reserved characters in query string" in {
       val url = Url(
         scheme = "http",

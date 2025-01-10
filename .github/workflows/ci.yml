@@ -32,6 +32,8 @@ jobs:
 
       - uses: sbt/setup-sbt@v1
 
+      - run: apt install libidn2-dev
+
       - name: Test
         run: sbt --client test
 
