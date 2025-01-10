@@ -16,7 +16,7 @@ trait PunycodeSupport {
     }
     if (error < 0) {
       throw new RuntimeException(
-        s"idn2_to_ascii_8z for input '$host' and flags IDN2_TRANSITIONAL returned error $error."
+        s"idn2_to_ascii_8z for input '$host' and flags IDN2_TRANSITIONAL=$IDN2_TRANSITIONAL returned error $error."
       )
     } else {
       result
