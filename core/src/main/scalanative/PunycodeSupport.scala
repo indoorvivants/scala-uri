@@ -20,7 +20,7 @@ trait PunycodeSupport {
   def toPunycode(host: String): String =
     Zone.acquire { implicit z: Zone =>
       import scalanative.runtime.ffi._
-      val output: Ptr[CString] = alloc[CString]()
+      val output: Ptr[CString] = stackalloc[CString]()
       var rc = CIdn.toAscii(toCString(host), output, IDN2_NONTRANSITIONAL)
 
       if (rc == IDN2_DISALLOWED) {
