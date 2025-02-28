@@ -1,6 +1,6 @@
 package io.lemonlabs.uri.inet
 
-import scala.scalanative.unsafe.*
+import scala.scalanative.unsafe._
 
 @link("idn2")
 @extern
@@ -19,7 +19,7 @@ private[inet] object CIdn {
 trait PunycodeSupport {
   def toPunycode(host: String): String =
     Zone.acquire { implicit z: Zone =>
-      import scalanative.runtime.ffi.*
+      import scalanative.runtime.ffi._
       val output: Ptr[CString] = alloc[CString]()
       var rc = CIdn.toAscii(toCString(host), output, IDN2_NONTRANSITIONAL)
 
@@ -37,7 +37,7 @@ trait PunycodeSupport {
       }
     }
 
-  private val IDN2_TRANSITIONAL = 4
-  private val IDN2_NONTRANSITIONAL = 8
-  private val IDN2_DISALLOWED = -304
+  private final val IDN2_TRANSITIONAL = 4
+  private final val IDN2_NONTRANSITIONAL = 8
+  private final val IDN2_DISALLOWED = -304
 }
