@@ -43,6 +43,7 @@ inThisBuild(
 lazy val root =
   project
     .in(file("."))
+    .disablePlugins(MimaPlugin)
     .aggregate(scalaUri.projectRefs*)
     .settings(publish / skip := true, publishLocal / skip := true)
 
@@ -84,6 +85,7 @@ lazy val docs = project
   )
   .dependsOn(scalaUri.jvm(Versions.Scala213))
   .enablePlugins(MdocPlugin)
+  .disablePlugins(MimaPlugin)
 
 val simulacrumScalafixVersion = "0.5.4"
 ThisBuild / scalafixDependencies += "org.typelevel" %% "simulacrum-scalafix" % simulacrumScalafixVersion
