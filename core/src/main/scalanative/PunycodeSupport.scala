@@ -18,23 +18,24 @@ private[inet] object CIdn {
 
 trait PunycodeSupport {
   def toPunycode(host: String): String =
-    Zone.acquire { implicit z: Zone =>
-      import scalanative.runtime.ffi._
-      val output: Ptr[CString] = stackalloc[CString]()
-      var rc = CIdn.toAscii(toCString(host), output, IDN2_NONTRANSITIONAL)
+    Zone.acquire {
+      implicit z: Zone =>
+        import scalanative.runtime.ffi._
+        val output: Ptr[CString] = stackalloc[CString]()
+        var rc = CIdn.toAscii(toCString(host), output, IDN2_NONTRANSITIONAL)
 
-      if (rc == IDN2_DISALLOWED) {
-        rc = CIdn.toAscii(toCString(host), output, IDN2_TRANSITIONAL)
-      }
+        if (rc == IDN2_DISALLOWED) {
+          rc = CIdn.toAscii(toCString(host), output, IDN2_TRANSITIONAL)
+        }
 
-      if (rc != 0) {
-        val errMsg = CIdn.errorMsg(rc)
-        throw new IllegalArgumentException(fromCString(errMsg))
-      } else {
-        val out = fromCString(!output)
-        CIdn.free(!output)
-        out
-      }
+        if (rc != 0) {
+          val errMsg = CIdn.errorMsg(rc)
+          throw new IllegalArgumentException(fromCString(errMsg))
+        } else {
+          val out = fromCString(!output)
+          CIdn.free(!output)
+          out
+        }
     }
 
   private final val IDN2_TRANSITIONAL = 4
