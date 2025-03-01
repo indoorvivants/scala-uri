@@ -158,8 +158,8 @@ val mimaExcludes = Seq(
 val mimaSettings = Seq(
   mimaPreviousArtifacts := {
     val isNative = virtualAxes.value.contains(VirtualAxis.native)
-    val beforeFork = VersionNumber(version.value).matchesSemVer(SemanticSelector("<4.1.0"))
-    val beforeNativeRelease = VersionNumber(version.value).matchesSemVer(SemanticSelector("<4.2.0"))
+    val beforeFork = VersionNumber(version.value).matchesSemVer(SemanticSelector("<=4.1.0"))
+    val beforeNativeRelease = VersionNumber(version.value).matchesSemVer(SemanticSelector("<=4.2.0"))
 
     if (beforeFork) {
       Set("io.lemonlabs" % s"scala-uri_${scalaBinaryVersion.value}" % "4.0.3")
