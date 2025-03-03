@@ -12,7 +12,7 @@ val Versions = new {
   val Scala3 = "3.3.5"
   val Scala212 = "2.12.20"
   val Scala213 = "2.13.16"
-  val scalajsDom = "2.6.0"
+  val scalajsDom = "2.8.0"
   val cats = "2.12.0"
   val catsParse = "1.1.0"
 
