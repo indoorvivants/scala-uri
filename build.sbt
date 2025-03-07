@@ -13,7 +13,7 @@ val Versions = new {
   val Scala212 = "2.12.20"
   val Scala213 = "2.13.16"
   val scalajsDom = "2.8.0"
-  val cats = "2.12.0"
+  val cats = "2.13.0"
   val catsParse = "1.1.0"
 
   val allScala = Seq(Scala3, Scala212, Scala213)
