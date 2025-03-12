@@ -6,7 +6,7 @@ addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.17.0")
 
 addSbtPlugin("org.scala-native" % "sbt-scala-native" % "0.5.7")
 
-addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.9.2")
+addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.9.3")
 
 addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "1.1.4")
 
