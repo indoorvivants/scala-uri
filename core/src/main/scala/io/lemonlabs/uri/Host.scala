@@ -399,7 +399,7 @@ final case class IpV6(piece1: Char,
 
   def value: String =
     elidedStartAndEnd() match {
-      case (-1, -1) => toStringNonNormalised
+      case (-1, -1)     => toStringNonNormalised
       case (start, end) =>
         "[" + hexPieces.take(start).mkString(":") + "::" + hexPieces.drop(end).mkString(":") + "]"
     }
