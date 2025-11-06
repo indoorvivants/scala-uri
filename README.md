@@ -28,7 +28,7 @@
 To include it in your SBT project from maven central:
 
 ```scala
-"com.indoorvivants" %% "scala-uri" % "4.1.0"
+"com.indoorvivants" %% "scala-uri" % "4.2.0"
 ```
 
 ## Migration Guides
@@ -893,7 +893,7 @@ The type class instances exist in the companion objects for these types.
 Release builds are available in maven central. For SBT users just add the following dependency:
 
 ```scala
-"com.indoorvivants" %% "scala-uri" % "4.1.0"
+"com.indoorvivants" %% "scala-uri" % "4.2.0"
 ```
 
 For maven users you should use (for 2.13.x):
@@ -902,7 +902,7 @@ For maven users you should use (for 2.13.x):
 <dependency>
     <groupId>com.indoorvivants</groupId>
     <artifactId>scala-uri_2.13</artifactId>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
 </dependency>
 ```
 
@@ -914,6 +914,8 @@ Contributions to `scala-uri` are always welcome. Check out the [Contributing Gui
 
 ## 3.x.x to 4.x.x
 
+ * Add Scala Native support since version 4.2.0
+ * Minimal supported version for Scala JS under namespace `com.indoorvivants` starts from version 4.1.0
  * Scala 3 support has been added. Scala 2.13 and 2.12 support remain
  * *Binary Incompatibility*: [4765b4e](https://github.com/lemonlabsuk/scala-uri/commit/4765b4e6714a87d53ba0ae9bf58810e1b8be63d5#diff-e33d822268175cadb9ff5e2057fac2042db550f251da28d834f13b7bb44cf09aL45)
    removed a single `UriConfig.copy()` overload.
