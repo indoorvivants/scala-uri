@@ -9,7 +9,7 @@ import com.typesafe.tools.mima.core.{
 import com.typesafe.tools.mima.plugin.MimaKeys.{mimaBinaryIssueFilters, mimaPreviousArtifacts, mimaReportBinaryIssues}
 
 val Versions = new {
-  val Scala3 = "3.3.5"
+  val Scala3 = "3.3.7"
   val Scala212 = "2.12.20"
   val Scala213 = "2.13.16"
   val scalajsDom = "2.8.0"
