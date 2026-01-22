@@ -23,7 +23,7 @@ inThisBuild(
   List(
     organization     := "com.indoorvivants",
     organizationName := "Anton Sviridov",
-    homepage := Some(
+    homepage         := Some(
       url("https://github.com/indoorvivants/scala-uri")
     ),
     licenses := List(
